@@ -1,3 +1,26 @@
-<% @bad.each do |row| %>
-  <p><%= row %></P>
+<div class="jumbotron">
+<div class="container">
+<h1>#bofh blotter thing
+</div>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Requestor</th>
+      <th>Time</th>
+      <th>Username</th>
+      <th>Post</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @bad.each do |volume| %>
+<tr>
+  <td><%= volume['requestor'] %></td>
+  <td><%= volume['ts'].strftime('%T on %d/%m/%Y') %></td>
+  <td><%= volume['user'] %></td>
+  <td><%= volume['post'] %></td>
+</tr>
 <% end %>
+  </tbody>
+  </div>
