@@ -2,12 +2,15 @@
 require 'sinatra'
 require 'mysql2'
 require 'yaml'
-
+# to do:
+# move mysql connection into its own function
+# add an about page
+# make variable names useful
+#
 get '/' do
 
 config_file = File.join(File.dirname(__FILE__), 'config/database.yml')
 credentials = YAML.load(File.read(config_file))
-#should convert credentials to symbols
 
 begin
   con = Mysql2::Client.new(:host => credentials['db_host'],
